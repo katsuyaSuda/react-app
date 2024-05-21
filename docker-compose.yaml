@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.7"
 services:
   front:
     build:
@@ -7,5 +7,27 @@ services:
     volumes:
       - ./front:/front
     working_dir: /front
-    command:  node
+    command:  npm start
     tty: true
+    ports:
+      - 3000:3000
+
+  # mysql:
+  #   container_name: MysqlTest
+  #   image: mysql:5.7
+  #   volumes:
+  #       - ./mysql:/var/lib/mysql
+  #       - ./mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf
+  #   #MySQLのデフォルトポートは「3306」だが、既に使用している場合は、別の値を使用する
+  #   ports:
+  #     - ${DB_PORT}:33306
+  #   expose:
+  #     - ${DB_PORT}
+  #   environment:
+  #     MYSQL_DATABASE: ${DB_NAME}
+  #     MYSQL_USER: ${DB_USER}
+  #     MYSQL_PASSWORD: ${DB_PASS}
+  #     MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+  #     MYSQL_ROOT_HOST: '%'
+  #     MYSQL_TCP_PORT: ${DB_PORT}
+  #     TZ: ${TZ}

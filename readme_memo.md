@@ -32,6 +32,7 @@ front
                 Yes
             ・Which package manager do you want to use?
                 npm
+        prittier
             
 
 

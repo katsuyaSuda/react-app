@@ -5,10 +5,12 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
+      # ビルドするソースファイル
       - ./front:/front
+      # eslint設定ファイル
+      - ./eslint/.eslintrc.json:/my_lint/.eslintrc.json
     working_dir: /front
-    command:  npm start
-    tty: true
+    command: npm start
     ports:
       - 3000:3000
 
